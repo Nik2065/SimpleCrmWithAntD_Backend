@@ -1,0 +1,9 @@
+Src/DataAccess/bin/
+Src/DataAccess/obj/
+Src/DTOLib/obj/
+Src/Logic/bin/
+Src/Logic/obj/
+Src/SimpleCrmApi/bin/
+Src/SimpleCrmApi/obj/
+Src/SimpleCrmApi/SimpleCrmApi.csproj.user
+Src/DTOLib/bin/

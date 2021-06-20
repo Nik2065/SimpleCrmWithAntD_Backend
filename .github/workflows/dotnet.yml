@@ -20,6 +20,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./Src/SimpleCrmApi/SimpleCrmApi.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore ./Src/SimpleCrmApi/SimpleCrmApi.csproj
     - name: Test
       run: dotnet test --no-build --verbosity normal

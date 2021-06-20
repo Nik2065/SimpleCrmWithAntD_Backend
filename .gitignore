@@ -1,0 +1,8 @@
+Src/DataAccess/bin/
+Src/DataAccess/obj/
+Src/DTOLib/obj/
+Src/Logic/obj/
+Src/Logic/bin/
+Src/SimpleCrmApi/bin/
+Src/SimpleCrmApi/obj/
+Src/SimpleCrmApi/.vs/SimpleCrmApi/v16/.suo

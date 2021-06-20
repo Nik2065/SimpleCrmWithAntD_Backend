@@ -7,3 +7,5 @@ Src/SimpleCrmApi/bin/
 Src/SimpleCrmApi/obj/
 Src/SimpleCrmApi/SimpleCrmApi.csproj.user
 Src/DTOLib/bin/
+Src/SimpleCrmApi.Tests/obj/
+Src/SimpleCrmApi/.vs/

@@ -26,14 +26,12 @@ jobs:
     - name: Publish
       #run: dotnet publish --verbosity normal ./Src/SimpleCrmApi/SimpleCrmApi.csproj /p:PublishProfile="FTPProfile"
       run: dotnet publish --self-contained true -r linux-x64  --configuration Release --output ./mypublish ./Src/SimpleCrmApi/SimpleCrmApi.csproj
-    - name: CopyViaFtp
-      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      - name: Upload ftp
+      uses: sebastianpopp/ftp-action@releases/v2
       with:
-      # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-      ftp-server: ${{ secrets.FTPHOST }}
-      # FTP account username
-      ftp-username: ${{ secrets.FTPUSER }}
-      # FTP account password
-      ftp-password: ${{ secrets.FTPPASSWORD }}
-      # The local folder to copy, defaults to root project folder
-      local-dir: ./mypublish
+        host: ${{ secrets.FTPHOST }}
+        user: ${{ secrets.FTPUSER }}
+        password: ${{ secrets.FTPPASSWORD }}
+        localDir: "mypublish"
+        remoteDir: "artefacts"
+        options: "--delete --asci"

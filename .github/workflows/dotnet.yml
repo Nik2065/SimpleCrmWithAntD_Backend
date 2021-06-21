@@ -25,4 +25,4 @@ jobs:
       run: dotnet test --no-build --verbosity normal ./Src/SimpleCrmApi.Tests/SimpleCrmApi.Tests.csproj
     - name: Publish
       #run: dotnet publish --verbosity normal ./Src/SimpleCrmApi/SimpleCrmApi.csproj /p:PublishProfile="FTPProfile"
-      run: dotnet publish --self-contained true --configuration Release --output ftp://ciuser:H%9v8e45j10@dev19.projectsrv.ru ./Src/SimpleCrmApi/SimpleCrmApi.csproj
+      run: dotnet publish --self-contained true -r 3.1  --configuration Release --output ftp://ciuser:H%9v8e45j10@dev19.projectsrv.ru ./Src/SimpleCrmApi/SimpleCrmApi.csproj

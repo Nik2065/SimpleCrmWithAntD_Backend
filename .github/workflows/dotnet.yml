@@ -24,4 +24,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal ./Src/SimpleCrmApi.Tests/SimpleCrmApi.Tests.csproj
     - name: Publish
-      run: dotnet publish --no-build  ./Src/SimpleCrmApi/Properties/PublishProfiles/FTPProfile.pubxml
+      run: dotnet publish --no-build  --configuration ./Src/SimpleCrmApi/Properties/PublishProfiles/FTPProfile.pubxml

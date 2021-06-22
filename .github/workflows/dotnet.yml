@@ -25,4 +25,13 @@ jobs:
       run: dotnet test --no-build --verbosity normal ./Src/SimpleCrmApi.Tests/SimpleCrmApi.Tests.csproj
     - name: Publish
       #run: dotnet publish --verbosity normal ./Src/SimpleCrmApi/SimpleCrmApi.csproj /p:PublishProfile="FTPProfile"
-      run: dotnet publish --self-contained true -r linux-x64  --configuration Release --output ftp://ciuser:H%9v8e45j10@dev19.projectsrv.ru ./Src/SimpleCrmApi/SimpleCrmApi.csproj
+      run: dotnet publish --self-contained true -r linux-x64  --configuration Release --output ./mypublish ./Src/SimpleCrmApi/SimpleCrmApi.csproj
+    - name: Upload ftp
+      uses: sebastianpopp/ftp-action@releases/v2
+      with:
+        host: ${{ secrets.FTPHOST }}
+        user: ${{ secrets.FTPUSER }}
+        password: ${{ secrets.FTPPASSWORD }}
+        localDir: "mypublish"
+        remoteDir: "artefacts"
+        options: "--delete --asci"

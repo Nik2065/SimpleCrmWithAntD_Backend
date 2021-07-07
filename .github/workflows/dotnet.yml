@@ -36,8 +36,8 @@ jobs:
         options: "--delete --asci"
     - name: DeployScript
       uses: cross-the-world/ssh-pipeline@master
-      env:
-      WELCOME: "ssh pipeline"
+      #env:
+        #WELCOME: "ssh pipeline"
       with:
         host: ${{ secrets.DC_HOST }}
         user: ${{ secrets.DC_USER }}

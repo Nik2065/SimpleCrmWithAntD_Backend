@@ -24,20 +24,20 @@ namespace SimpleCrmApi.Controllers
                 o1.Content = "Заказ №1 и его описание";
                 result.Add(o1);
             }
-            {
-                var o2 = new DtoCrmOrder();
-                o2.Id = new Guid("DE3C7BBE-E3FE-4192-AD81-A2D617EC0119");
-                o2.Created = new DateTime(2021, 1, 1);
-                o2.Content = "Заказ №2 и его описание";
-                result.Add(o2);
-            }
-            {
-                var o3 = new DtoCrmOrder();
-                o3.Id = new Guid("DE3C7BBE-E3FE-4192-AD81-A2D617EC0000");
-                o3.Created = new DateTime(2021, 1, 1);
-                o3.Content = "Заказ №3 и его описание";
-                result.Add(o3);
-            }
+            //{
+            //    var o2 = new DtoCrmOrder();
+            //    o2.Id = new Guid("DE3C7BBE-E3FE-4192-AD81-A2D617EC0119");
+            //    o2.Created = new DateTime(2021, 1, 1);
+            //    o2.Content = "Заказ №2 и его описание";
+            //    result.Add(o2);
+            //}
+            //{
+            //    var o3 = new DtoCrmOrder();
+            //    o3.Id = new Guid("DE3C7BBE-E3FE-4192-AD81-A2D617EC0000");
+            //    o3.Created = new DateTime(2021, 1, 1);
+            //    o3.Content = "Заказ №3 и его описание";
+            //    result.Add(o3);
+            //}
 
 
 

@@ -44,5 +44,5 @@ jobs:
         pass: ${{ secrets.DC_PASS }}
         port: ${{ secrets.DC_PORT }}
         connect_timeout: 20s
-        script: 
-        mkdir /home/test1
+        script: |
+          mkdir /home/test1

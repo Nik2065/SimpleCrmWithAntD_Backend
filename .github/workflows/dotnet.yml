@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal ./Src/SimpleCrmApi.Tests/SimpleCrmApi.Tests.csproj
     - name: Publish
-      run: dotnet publish --framework netcoreapp3.1 --configuration Release --self-contained true -r linux-x64 --output ./mypublish ./Src/SimpleCrmApi/SimpleCrmApi.csproj
+      run: dotnet publish --framework netcoreapp3.1 --self-contained false -r linux-x64  --configuration Release --output ./mypublish ./Src/SimpleCrmApi/SimpleCrmApi.csproj
     - name: Upload ftp
       uses: sebastianpopp/ftp-action@releases/v2
       with:

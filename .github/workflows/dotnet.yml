@@ -9,16 +9,16 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    #runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
       uses: actions/setup-dotnet@v1.8.1
       with:
-        #dotnet-version: 5.0.x
         dotnet-version: '3.1.x'
-    - name: Restore dependencies
-      run: dotnet restore ./Src/SimpleCrmApi/SimpleCrmApi.csproj
+    #- name: Restore dependencies
+    #  run: dotnet restore ./Src/SimpleCrmApi/SimpleCrmApi.csproj
     - name: Build
       run: dotnet build --no-restore ./Src/SimpleCrmApi/SimpleCrmApi.csproj
     - name: Test
@@ -33,11 +33,9 @@ jobs:
         password: ${{ secrets.FTPPASSWORD }}
         localDir: "mypublish"
         remoteDir: "artefacts"
-        options: "--delete --asci"
+        #options: "--delete --asci"
     - name: DeployScript
       uses: cross-the-world/ssh-pipeline@master
-      #env:
-        #WELCOME: "ssh pipeline"
       with:
         host: ${{ secrets.DC_HOST }}
         user: ${{ secrets.DC_USER }}

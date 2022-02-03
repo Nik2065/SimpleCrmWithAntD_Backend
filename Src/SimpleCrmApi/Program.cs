@@ -20,8 +20,7 @@ namespace SimpleCrmApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>()
-                    .UseUrls("http://localhost:5002");
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }

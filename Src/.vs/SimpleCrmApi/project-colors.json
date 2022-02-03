@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f9d89fcc-b404-4ce9-96fc-3ec0bff62a1d": {
+      "ProjectGuid": "f9d89fcc-b404-4ce9-96fc-3ec0bff62a1d",
+      "DisplayName": "SimpleCrmApi",
+      "ColorIndex": 0
+    },
+    "2899c73f-abe6-4839-88dc-13520b35a204": {
+      "ProjectGuid": "2899c73f-abe6-4839-88dc-13520b35a204",
+      "DisplayName": "DataAccess",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

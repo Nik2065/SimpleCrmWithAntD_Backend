@@ -127,7 +127,7 @@ namespace SimpleCrmApi.Controllers
                 return (claimsIdentity, user);
             }
 
-            // если пользователя не найдено
+            // если пользователя не найден
             return (null, null);
         }
 

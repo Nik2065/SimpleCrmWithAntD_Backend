@@ -8,7 +8,7 @@ namespace DataAccess.Entities
     public class CrmCustomer
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid CustomerId { get; set; }
         //индектификатор в пределах аккаунта
         public int LocalId { get; set; }
 

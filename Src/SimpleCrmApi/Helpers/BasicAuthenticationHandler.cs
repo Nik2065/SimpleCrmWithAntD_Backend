@@ -1,4 +1,5 @@
 ﻿using DataAccess.Entities;
+using Logic;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -16,17 +17,18 @@ namespace SimpleCrmApi.Helpers
 {
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-        private readonly IUserService _userService;
+        //private readonly IUserService _userService;
+        private readonly IUserLogic _userLogic;
 
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
             ISystemClock clock,
-            IUserService userService)
+            IUserLogic userLogic)
             : base(options, logger, encoder, clock)
         {
-            _userService = userService;
+            _userLogic = userLogic;
         }
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
@@ -42,7 +44,7 @@ namespace SimpleCrmApi.Helpers
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);
                 var username = credentials[0];
                 var password = credentials[1];
-                user = await _userService.Authenticate(username, password);
+                user = await _userLogic.Authenticate(username, password);
             }
             catch
             {

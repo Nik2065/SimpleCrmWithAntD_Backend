@@ -8,6 +8,7 @@ using System.Transactions;
 using Common;
 using DataAccess;
 using DataAccess.Entities;
+using Logic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,13 +25,16 @@ namespace SimpleCrmApi.Controllers
     {
         private readonly NLog.Logger _logger;
         private DataStore _db;
-        private UserService _userService;
+        //private UserService _userService;
+        private UserLogic _userLogic;
+
 
         public UsersController(DataStore context)
         {
             _logger = NLog.LogManager.GetCurrentClassLogger();
             _db = context;
-            _userService = new UserService(context);
+            //_userService = new UserService(context);
+            _userLogic = new UserLogic(context);
         }
 
         [AllowAnonymous]
@@ -104,7 +108,7 @@ namespace SimpleCrmApi.Controllers
         //TODO: доделать реализацию пароля
         private (ClaimsIdentity identity, CrmUser user) GetIdentity(string useremail, string password)
         {
-            var us = new UserService(_db);
+            var us = new UserLogic(_db);
 
             var user = _db.CrmUsers
                 .Include(c => c.UserRole)
@@ -144,28 +148,7 @@ namespace SimpleCrmApi.Controllers
 
             try
             {
-                using(var tran = new TransactionScope())
-                {
-                    var account = new CrmAccount();
-                    account.CompanyName = data.CompanyName;
-
-                    _db.CrmAccounts.Add(account);
-                    await _db.SaveChangesAsync();
-
-                    var user = new CrmUser();
-                    user.CrmAccountId = account.CrmAccountId;
-                    user.CrmUserEmail = data.UserEmail;
-                    user.CrmUserPassword = _userService.HashPassword(data.Password);
-                    user.FirstName = data.FirstName;
-                    user.SecondName = data.SecondName;
-                    user.ThirdName = data.ThirdName;
-                    user.CrmUserPhone = data.UserPhone;
-
-                    _db.CrmUsers.Add(user);
-                    await _db.SaveChangesAsync();
-
-                    tran.Complete();
-                }
+                await _userLogic.RegUser(data);
             }
             catch(Exception ex)
             {
@@ -189,27 +172,7 @@ namespace SimpleCrmApi.Controllers
         [Route("[action]")]
         public void CreateTestUser()
         {
-            var us = new UserService(_db);
-
-            var a = new CrmAccount();
-            a.CompanyName = "Test Company";
-            _db.CrmAccounts.Add(a);
-            _db.SaveChanges();
-
-
-
-            var u = new CrmUser();
-            u.CrmUserEmail = "mail@projectsrv.ru";
-            u.CrmUserPassword = us.HashPassword("123");
-            u.CrmUserPhone = "79001234455";
-            u.FirstName = "";
-            u.CrmUserRoleId = (int)CrmUserRolesEnum.Administrator;
-            u.CrmAccountId = a.CrmAccountId;
-            u.CrmUserCreated = DateTime.Now;
-
-
-            _db.CrmUsers.Add(u);
-            _db.SaveChanges();
+            _userLogic.CreateTestUser();
         }
     }
 }

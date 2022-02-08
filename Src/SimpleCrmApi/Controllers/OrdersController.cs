@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataAccess;
 using DataAccess.Entities;
+using Logic;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,13 +16,15 @@ namespace SimpleCrmApi.Controllers
     [Authorize]
     public class OrdersController : Controller
     {
-        NLog.Logger _logger;
-        DataStore _db;
+        private readonly NLog.Logger _logger;
+        private readonly DataStore _db;
+        private readonly OrderLogic _orderLogic;
 
         public OrdersController(DataStore context)
         {
             _logger = NLog.LogManager.GetCurrentClassLogger();
             _db = context;
+
         }
 
         [HttpGet]
@@ -41,11 +44,11 @@ namespace SimpleCrmApi.Controllers
                 if (!string.IsNullOrEmpty(accountId))
                 {
                     var accountIdGuid = new Guid(accountId);
-                    var o = _db.CrmOrders
-                        .Where(item => item.CrmAccountId == accountIdGuid)
-                        .Include(item => item.CrmCustomer)
-                        .Include(item => item.AuthorCrmUser)
-                        .ToList();
+
+                    var condition = new CrmOrdersCondition();
+                    var o = _orderLogic.GetCrmOrders(condition);
+
+
 
                     result = new
                     {

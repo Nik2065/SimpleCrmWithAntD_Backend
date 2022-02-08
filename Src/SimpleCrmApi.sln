@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCrmApi", "SimpleCrmApi\SimpleCrmApi.csproj", "{F9D89FCC-B404-4CE9-96FC-3EC0BFF62A1D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{2899C73F-ABE6-4839-88DC-13520B35A204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{71C4EFCB-CD90-4C52-AB6B-E4EE30B6637B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{71C4EFCB-CD90-4C52-AB6B-E4EE30B6637B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCrmApi.Tests", "SimpleCrmApi.Tests\SimpleCrmApi.Tests.csproj", "{5962579B-97D5-423A-955D-DB28C90A0E3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTOLib", "DTOLib\DTOLib.csproj", "{C810C01C-8696-4EE5-A621-A641CEC2DDC2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{C6ABB0FA-04E5-47E4-8424-83231986361F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{71C4EFCB-CD90-4C52-AB6B-E4EE30B6637B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71C4EFCB-CD90-4C52-AB6B-E4EE30B6637B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71C4EFCB-CD90-4C52-AB6B-E4EE30B6637B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5962579B-97D5-423A-955D-DB28C90A0E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5962579B-97D5-423A-955D-DB28C90A0E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5962579B-97D5-423A-955D-DB28C90A0E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5962579B-97D5-423A-955D-DB28C90A0E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C810C01C-8696-4EE5-A621-A641CEC2DDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C810C01C-8696-4EE5-A621-A641CEC2DDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C810C01C-8696-4EE5-A621-A641CEC2DDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C810C01C-8696-4EE5-A621-A641CEC2DDC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6ABB0FA-04E5-47E4-8424-83231986361F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6ABB0FA-04E5-47E4-8424-83231986361F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6ABB0FA-04E5-47E4-8424-83231986361F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6ABB0FA-04E5-47E4-8424-83231986361F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

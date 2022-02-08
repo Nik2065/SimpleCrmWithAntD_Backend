@@ -14,3 +14,4 @@ Src/SimpleCrmApi/Properties/PublishProfiles/FTPProfile.pubxml.user
 mypublish/
 Src/Common/bin/
 Src/Common/obj/
+Src/.vs/SimpleCrmApi/v17/

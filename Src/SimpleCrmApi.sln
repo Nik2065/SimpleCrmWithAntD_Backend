@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{71C4EFCB-CD90-4C52-AB6B-E4EE30B6637B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCrmApi.Tests", "SimpleCrmApi.Tests\SimpleCrmApi.Tests.csproj", "{5962579B-97D5-423A-955D-DB28C90A0E3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic.Tests", "SimpleCrmApi.Tests\Logic.Tests.csproj", "{5962579B-97D5-423A-955D-DB28C90A0E3C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTOLib", "DTOLib\DTOLib.csproj", "{C810C01C-8696-4EE5-A621-A641CEC2DDC2}"
 EndProject
